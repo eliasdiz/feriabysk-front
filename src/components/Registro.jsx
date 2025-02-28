@@ -3,7 +3,7 @@ import { ArrowCircleRight, At, LockKey, LockKeyOpen } from '@phosphor-icons/reac
 import axios from 'axios'
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { urlHost } from '../urlHost'
 
 export default function Registro() {
@@ -20,7 +20,7 @@ export default function Registro() {
             email: email,
             password: password
         }    
-        console.log(data)
+        // console.log(data)
         const promesa = axios.post(`${urlHost}aut/crear`,data)
         toast.promise(
             promesa,
@@ -43,7 +43,7 @@ export default function Registro() {
     return (
         <>
             <Paper 
-                className='h-[50%] w-[50%] flex flex-col items-center justify-center gap-4 rounded-md p-3 bg-gray-500'
+                className='h-[50%] w-[40%] flex flex-col items-center justify-center gap-4 rounded-md p-3 bg-gray-500'
                 sx={{backgroundColor: '#6B7280'}}
                 elevation={4}
             >
@@ -100,6 +100,10 @@ export default function Registro() {
                         <ArrowCircleRight size={20} weight='bold' />
                     </Button>
                 </div>
+                <Typography fontSize={15}>
+                    Si ya tienes cuenta inicia sesion aqui
+                    <Link to="/" className="font-bold"> Aqui</Link> 👈
+                </Typography>
             </Paper>
         <Toaster />
         </>
