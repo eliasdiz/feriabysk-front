@@ -6,7 +6,7 @@ export default function CardPokemon({pokemon}) {
     return (
         <>
             <div
-                className="w-[90%] flex flex-col items-center gap-1 bg-gray-400 rounded-md p-2 shadow-2xs"
+                className="w-[80%] flex flex-col items-center gap-1 bg-gray-400 rounded-md p-2 shadow-2xs"
             >
                 <Typography fontSize={20} className='capitalize'>
                     {pokemon?.nombre}
@@ -24,7 +24,7 @@ export default function CardPokemon({pokemon}) {
                     }}
                 />
 
-                <div className='w-[90%]'>
+                <div className='w-[100%]'>
                     <Typography fontSize={15} className='capitalize'>
                         ID: {pokemon?.id}
                     </Typography>
