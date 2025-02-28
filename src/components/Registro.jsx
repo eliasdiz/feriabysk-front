@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
 import { Button, OutlinedInput, Paper, Typography } from '@mui/material'
-import { ArrowCircleRight, At, LockKey, LockKeyOpen } from '@phosphor-icons/react' 
-import {urlHost} from '../urlHost.js'
+import { ArrowCircleRight, At, LockKey, LockKeyOpen } from '@phosphor-icons/react'
 import axios from 'axios'
+import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { urlHost } from '../urlHost'
 
-export default function Login() {
+export default function Registro() {
 
     const navigate = useNavigate()
     const [ mostratCLave, setMostrarClave ] = useState(false)
@@ -21,15 +21,15 @@ export default function Login() {
             password: password
         }    
         console.log(data)
-        const promesa = axios.post(`${urlHost}aut/login`,data)
+        const promesa = axios.post(`${urlHost}aut/crear`,data)
         toast.promise(
             promesa,
             {
-                loading: 'iniciando sesion...',
+                loading: 'creando usuario...',
                 success: (res) => {
                     localStorage.setItem('token',res.data.token)
                     setTimeout(() => {
-                        navigate('/dashboard')
+                        navigate('/')
                     }, 2000);
                     return <>{res.data.message}</>
                 },
@@ -39,20 +39,20 @@ export default function Login() {
             },{style:{backgroundColor: '#CBD5E0', textTransform:'capitalize', textAlign:'center'}}
         )
     }
-    
 
     return (
         <>
             <Paper 
-                className='h-[50%] w-[50%] flex flex-col items-center justify-center gap-3 rounded-md p-3 bg-gray-500'
+                className='h-[50%] w-[50%] flex flex-col items-center justify-center gap-4 rounded-md p-3 bg-gray-500'
                 sx={{backgroundColor: '#6B7280'}}
                 elevation={4}
             >
-                <di className='w-[90%] flex flex-col items-center justify-center gap-3'>
 
-                    <Typography fontSize={25} color='white' className='uppercase'>
-                        inicio de sesion
-                    </Typography>
+                <Typography fontSize={20} color='white' className='uppercase'>
+                    formulario de registro
+                </Typography>
+
+                <div className='w-[90%] flex flex-col items-center justify-center gap-4'>
 
                     <OutlinedInput
                         fullWidth
@@ -96,18 +96,12 @@ export default function Login() {
                         fullWidth
                         onClick={handleLogin}
                     >
-                        entrar 
+                        registrarse 
                         <ArrowCircleRight size={20} weight='bold' />
                     </Button>
-
-                </di>
-
-                <Typography fontSize={15}>
-                    Si no te has registrado haz click 
-                    <Link to="/registro" className="font-bold"> Aqui</Link> 👈
-                </Typography>
+                </div>
             </Paper>
-            <Toaster />
+        <Toaster />
         </>
     )
 }
