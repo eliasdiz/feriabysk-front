@@ -20,7 +20,7 @@ export default function Login() {
             email: email,
             password: password
         }    
-        console.log(data)
+        // console.log(data)
         const promesa = axios.post(`${urlHost}aut/login`,data)
         toast.promise(
             promesa,
@@ -44,7 +44,7 @@ export default function Login() {
     return (
         <>
             <Paper 
-                className='h-[50%] w-[50%] flex flex-col items-center justify-center gap-3 rounded-md p-3 bg-gray-500'
+                className='h-[50%] w-[40%] flex flex-col items-center justify-center gap-3 rounded-md p-3 bg-gray-500'
                 sx={{backgroundColor: '#6B7280'}}
                 elevation={4}
             >
