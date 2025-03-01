@@ -123,15 +123,15 @@ export default function DashBoard() {
                                 ))
                             :
                             <>
-                                <div className='flex flex-col items-center justify-center gap-3 text-center'>
+                                <div className='flex flex-col items-center justify-center text-center'>
                                     <CardMedia
                                         className="object-contain h-[100%] w-[50%]"
                                         component={'img'}
                                         image={poke404}
                                         alt={pokemon?.nombre}
                                         sx={{
-                                            width: 100,
-                                            height: 100,
+                                            width: 300,
+                                            height: 150,
                                             objectFit: "contain",
                                             backgroundColor: 'transparent'
                                         }}
