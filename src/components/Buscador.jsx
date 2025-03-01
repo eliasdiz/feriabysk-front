@@ -7,12 +7,14 @@ import React from 'react'
 export default function Buscador({ pokeName, setPokename, handleErase, handleFilter, searchById, setSearchById }) {
     
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-center gap-2">
+
             <div className="flex items-center gap-2">
+            
                 <OutlinedInput
                     placeholder={searchById ? "Buscar por ID" : "Buscar por nombre"}
                     size="small"
-                    sx={{ color: "white" }}
+                    sx={{ color: "white",border: '1px solid white' }}
                     onChange={(e) => setPokename(e.target.value.toLowerCase())}
                     value={pokeName}
                     type={searchById ? "number" : "text"}
@@ -40,7 +42,7 @@ export default function Buscador({ pokeName, setPokename, handleErase, handleFil
                 />
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 text-white">
                 <FormControlLabel
                     control={
                         <Checkbox
